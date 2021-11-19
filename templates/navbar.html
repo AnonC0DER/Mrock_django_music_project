@@ -1,0 +1,31 @@
+{% load static %}
+<head>
+    {% block title %} {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+<!-- header -->
+<header>
+    <div class="container">
+      <div class="navbar-header">
+        <a href="{% url 'Home' %}" class="navbar-brand">
+          <img src="{% static 'assets/images/logo.png' %}" alt="">
+        </a>
+      </div>
+      <nav>
+        <ul class="nav navbar-nav navbar-link">
+          <li class="active"><a href="{% url 'Home' %}">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>

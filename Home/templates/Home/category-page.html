@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block content %}
+<head>
+  <title>{% block title %}{{cat.name}} category - Mrock{% endblock title %}</title>
+</head>
+
+<!-- Music list -->
+<div class="container-sm box">
+  <div class="main">
+    <div class="main-wrap">
+      <div class="content-box">
+        <div class="piano-list">
+          <div class="content-header">
+            <h2><i class="fa fa-music red"></i>{{cat.name}} category</h2>
+          </div>
+          <ul class="music-list clearfix">
+            
+            {% for music in Musics %}
+            <li>
+              <div class="u-cover">
+                <img src="{{music.thumbnail.url}}">
+                <a title="{{music.music_name}} - {{music.artist}}" href="{% url 'single-music' music.id %}" class="msk"></a>
+              </div>
+              <p class="dec">
+                <a title="{{music.music_name}} - {{music.artist}}" href="{% url 'single-music' music.id %}">{{music.music_name}}</a>
+              </p>
+              <div class="author">{{music.artist}}</div>
+            </li>
+            {% endfor %}
+            
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  {% include 'navbar.html' %}
+  
+</head>
+
+<body>
+    {% block content %}
+
+
+    {% endblock content %}
+    <!-- Bottom copyright -->
+    {% include 'pagination.html' with queryset=popular_rec custom_range=custom_range %}
+    <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © <span class="update-year">2021</span> AnonC0DER - All Rights Reserved</p>
+      </div>
+    </div>
+    </footer>
+
+    <!-- Load Js -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/HBSlider.js' %}"></script>
+{% block js %}
+
+{% endblock js %}
+
+
+</body>
+</html>

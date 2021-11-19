@@ -1,0 +1,175 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+  <title>{% block title %}Home - Mrock{% endblock title %}</title>
+</head>
+
+<style>
+/* Style the search field */
+form.example input[type=text] {
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid grey;
+  float: center;
+  width: 20%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: center;
+  width: 3%;
+  padding: 3px;
+  background: #2196F3;
+  color: white;
+  font-size: 10px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<header align='center'>
+<form class="example" action="{% url 'Home' %}" method="GET">
+  <input type="text" placeholder="Search..." value="{{search_query}}" name="search_query" />
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+</header>
+<!-- Slider -->
+<div class="container-sm slider-wrap">
+    <div class="slider">
+      <div class="slider-item-list"></div>
+      <div class="slider-dots">
+        <div class="slider-dots-wrap"></div>
+      </div>
+      <div class="slider-arrows">
+        <div class="slider-arrows-wrap">
+          <span class="slider-arrow slider-arrow-left" onclick="HBSlider.turn(-1)"></span>
+          <span class="slider-arrow slider-arrow-right" onclick="HBSlider.turn(1)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Main content area -->
+<div class="container-sm box">
+    <!-- Main content -->
+    <div class="main">
+      <div class="main-wrap">
+        <div class="content-box">
+          <!-- Popular recommendation -->
+          <div class="hot-recommand">
+            <div class="content-header">
+              <h2><i class="fa fa-music red"></i>Latest Musics</h2>
+              <div class="tab" id="cat">  
+                {% for cat in category %}
+                <a href="{% url 'category-page' cat.id %}">{{cat.name}}</a>
+                <span class="line">|</span>
+                {% endfor %}
+
+              </div>
+              <span class="more"><a href="#">More</a></span>
+            </div>
+
+            <ul class="music-list clearfix">
+              {% for popular in popular_rec %}
+              <li>
+                <div class="u-cover">
+                  <img src="{{popular.thumbnail.url}}">
+                  <a title="{{popular.music_name}}" href="{% url 'single-music' popular.id %}" class="msk"></a>
+                </div>
+                <p class="dec">
+                  <a title="{{popular.music_name}}" href="{% url 'single-music' popular.id %}">{{popular.music_name}}</a>
+                </p>
+                <div class="author">{{popular.artist}}</div>
+              </li>
+
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Category list -->
+          <div class="category">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sidebar -->
+    <div class="sidebar" style="min-height: 1094px">
+      <div class="right-module">
+        <h4>Latest</h4>
+
+        <ul class="new-artist-songs">
+
+          {% for music in popular_rec %}
+          <li class="artist-song">
+            <div class="avatar">
+              <img src="{{music.thumbnail.url}}">
+            </div>
+            <div class="info">
+              <h3>{{music.music_name}}</h3>
+              <p>{{music.artist}}</p>
+            </div>
+            <a href="{% url 'single-music' music.id %}" title="Refrain" class="cover-link"></a>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+{% block js %}
+<script>
+  // Carousel data
+  var sliderData = [
+    {
+      title: 'Metal',
+      pic: '{% static "media/slider/Heavy Metal.jpg" %}',
+      url: 'category/7c91242a-10d5-4ac2-ad11-7fa2d27b5fd4/'
+    },
+    {
+      title: 'Rock',
+      pic: '{% static "media/slider/Rock.jpg" %}',
+      url: 'category/2b3cd634-71e1-47aa-a219-be96c6470dbc/'
+    },
+    {
+      title: 'Pop',
+      pic: '{% static "media/slider/Pop.jpg" %}',
+      url: 'category/d8294622-f43b-49e2-abad-c31a9c6527ac/'
+    },
+    {
+      title: 'Hip Hop',
+      pic: '{% static "media/slider/hip.jpg" %}',
+      url: 'category/f0b74b7e-f963-47d5-9c23-fa8734af3526/'
+    }
+  ];
+
+  $(function () {
+    HBSlider.setConfig({
+      autoPlay: true,
+      delay: 5
+    });
+    HBSlider.setItems(sliderData);
+    HBSlider.init();
+    HBSlider.play();
+  });
+</script>
+{% endblock js %}

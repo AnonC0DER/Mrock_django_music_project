@@ -1,0 +1,123 @@
+{% extends 'main.html' %}
+{% block content %}
+<head>
+  <title>{% block title %}{{music.music_name}} - Mrock{% endblock title %}</title>
+</head>
+
+<style>
+  /* Style buttons */
+.btn {
+  background-color: rgb(18, 30, 43);
+  border: 1px;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+
+<div class="container-sm player-wrap">
+  <div id="music-player" class="aplayer"></div>
+</div>
+<div class="container-sm box">
+  <div class="main">
+    <div class="main-wrap">
+      <div class="content-box article">
+        <div class="title">
+          <h2>{{music.music_name}} - {{music.artist}}</h2>
+        </div>
+        <div class="content">
+          <p>
+            <img src="{{music.thumbnail.url}}">
+          </p>
+          <p>{{music.lyrics|linebreaks}}</p>
+        </div>
+      </div>
+      {% if music.audio_link %}
+      <a href="{{music.audio_link}}">
+        <button class="btn"><i class="fa fa-download"></i>Download Music</button>
+      </a>
+      {% else %}
+      <a href="{{music.audio_file.url}}">
+        <button class="btn"><i class="fa fa-download"></i>Download Music</button>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="right-module">
+      <h4>Latest</h4>
+      <ul class="new-artist-songs">
+
+        {% for music in new_musics %}
+        <li class="artist-song">
+          <div class="avatar">
+            <img src="{{music.thumbnail.url}}">
+          </div>
+          <div class="info">
+            <h3>{{music.music_name}}</h3>
+            <p>{{music.artist}}</p>
+          </div>
+          <a href="{% url 'single-music' music.id %}" title="Refrain" class="cover-link"></a>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% block js %}
+<script src="https://cdnjs.rsb.net/ajax/libs/aplayer/1.5.8/APlayer.min.js"></script>
+{% if music.audio_link %}
+<script>
+  var ap = new APlayer({
+    element: document.getElementById('music-player'), // Optional, player element
+    narrow: false,                                    // Optional, narrow style
+    autoplay: false,                                   // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                       // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                      // Optional, pause other players when this player playing
+    theme: '#B72712',                                 // Optional, theme color, default: #b7daff
+    mode: 'circulation',                              // Optional, play mode, `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                              // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                           // Optional, max height of play list
+    music: {                                          // Required, music info
+      title: '{{music.music_name}}',                                 // Required, music title
+      author: '{{music.artist}}',                          // Required, music author
+      url: '{{music.audio_link}}',  // Required, music url
+      pic: '{{music.thumbnail.url}}'  // Optional, music picture
+    }
+  });
+</script>
+
+{% else %}
+<script>
+  var ap = new APlayer({
+    element: document.getElementById('music-player'), // Optional, player element
+    narrow: false,                                    // Optional, narrow style
+    autoplay: false,                                   // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                       // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                      // Optional, pause other players when this player playing
+    theme: '#B72712',                                 // Optional, theme color, default: #b7daff
+    mode: 'circulation',                              // Optional, play mode, `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                              // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                           // Optional, max height of play list
+    music: {                                          // Required, music info
+      title: '{{music.music_name}}',                                 // Required, music title
+      author: '{{music.artist}}',                          // Required, music author
+      url: '{{music.audio_file.url}}',  // Required, music url
+      pic: '{{music.thumbnail.url}}'  // Optional, music picture
+    }
+  });
+</script>
+{% endif %}
+
+{% endblock js %}
+
+{% endblock content %}

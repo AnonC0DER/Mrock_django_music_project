@@ -1,6 +1,8 @@
 # Mrock
 A simple djagno music website.
-I use (this)[https://github.com/iHaPBoy/music-website] template and I translate it to eng. 
+I use (https://github.com/iHaPBoy/music-website)[this] template and I translated it to eng.
+Also some changes commited.
+My Live Domo : https://mrock.pythonanywhere.com/
 
 
 # How to run?
@@ -18,3 +20,20 @@ I use (this)[https://github.com/iHaPBoy/music-website] template and I translate 
 **Enter your username and password**
 
 6. Now your can upload your musics
+
+
+# Files
+All musics and thumbnails are upload (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/media)[here]
+<br>
+Main template, navbar and pagination are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/templates)[here]
+<br>
+Settings, main urls and etc are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Mrock)[here]
+<br>
+Home, single music, category pages and main models are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Home)[here]
+<br>
+Css, html, js and some images are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/assets)[here]
+<br>
+
+
+# Screenshot
+![ScreenShot](Mrock.jpg)

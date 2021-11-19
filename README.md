@@ -1,5 +1,6 @@
 # Mrock
 A simple djagno music website.
+I use (this)[https://github.com/iHaPBoy/music-website] template and I translate it to eng. 
 
 
 # How to run?

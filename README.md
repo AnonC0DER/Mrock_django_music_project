@@ -1,6 +1,6 @@
 # Mrock
 A simple djagno music website.
-I use (https://github.com/iHaPBoy/music-website)[this] template and I translated it to eng.
+I used [this](https://github.com/iHaPBoy/music-website) template and I translated it to eng.
 Also some changes commited.
 My Live Domo : https://mrock.pythonanywhere.com/
 
@@ -23,15 +23,15 @@ My Live Domo : https://mrock.pythonanywhere.com/
 
 
 # Files
-All musics and thumbnails are upload (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/media)[here]
+All musics and thumbnails are upload [here](https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/media)
 <br>
-Main template, navbar and pagination are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/templates)[here]
+Main template, navbar and pagination are [here](https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/templates)
 <br>
-Settings, main urls and etc are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Mrock)[here]
+Settings, main urls and etc are [here](https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Mrock)
 <br>
-Home, single music, category pages and main models are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Home)[here]
+Home, single music, category pages and main models are [here](https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/Home)
 <br>
-Css, html, js and some images are (https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/assets)[here]
+Css, html, js and some images are [here](https://github.com/AnonC0DER/Mrock_django_music_project/tree/master/static/assets)
 <br>
 
 

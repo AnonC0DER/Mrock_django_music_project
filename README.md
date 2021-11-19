@@ -14,7 +14,7 @@ My Live Domo : https://mrock.pythonanywhere.com/
 3. python3 manage.py createsuperuser<br>
 **Enter your username and password**
 
-4. python manage.py runserver<br>
+4. python3 manage.py runserver<br>
 **open 127.0.0.1:8000 in your browser**
 
 5. Admin Panel : 127.0.0.1:8000/admin<br>

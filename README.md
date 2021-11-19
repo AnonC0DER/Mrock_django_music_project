@@ -38,4 +38,4 @@ Css, html, js and some images are [here](https://github.com/AnonC0DER/Mrock_djan
 
 # Screenshots
 ![ScreenShot](Mrock.jpg)
-![ScreenShot](Mrock-single music page.jpg)
+![ScreenShot](Mrock-single-music-page.jpg)
